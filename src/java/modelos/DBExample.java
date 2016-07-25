@@ -27,7 +27,7 @@ public class DBExample {
     //public void 
 
     public static void main(String[] args) {
-        User user = new User("Branny", "branny@gmail", 1337, "root_user");
+        User user = new User("Rodrigo Castro", "rcastro@example.com", "Disigner");
         user.Save();
         
     }//end main

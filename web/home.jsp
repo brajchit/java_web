@@ -85,7 +85,7 @@
     <div class="modal fade" id="modalUsuarios" tabindex="-1" role="dialog">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
-          <form>
+          <form id="newUserForm">
             <div class="modal-header">
               <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
               <h4 class="modal-title">Ingresar Usuario</h4>
@@ -107,7 +107,7 @@
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-              <button type="submit" class="btn btn-primary">Ingresar</button>
+              <button type="submit" class="btn btn-primary" id="btnNewUser">Ingresar</button>
             </div>
           </form>
         </div>
@@ -117,6 +117,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/v/bs/dt-1.10.12/datatables.min.js"></script>
+    <script src="javascripts/userNew.js" charset="utf-8"></script>
     <script>
         $(document).ready(function() {
             $('#tablaUsuarios').DataTable({
@@ -127,7 +128,7 @@
                     { 'bSortable': false, 'aTargets': [ 4, 5 ] }
                  ]
             });
-            
+
         });
     </script>
   </body>

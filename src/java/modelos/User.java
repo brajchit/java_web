@@ -17,17 +17,19 @@ public class User {
     protected String email;
     protected int pasword;
     protected String rol;
+    
+    final String GETALL = "SELECT nombre, email, rol FROM users";
 
-    public User(String nombre, String email, int pasword, String rol) {
+    public User(String nombre, String email, String rol) {
         this.nombre = nombre;
         this.email = email;
-        this.pasword = pasword;
+        //this.pasword = pasword;
         this.rol = rol;
     }
 
     public boolean Save(){
         boolean result = false;
-        String INSERT = "INSERT INTO users(nombre, email, pass, rol) VALUES(?, ?, ?, ?)";
+        String INSERT = "INSERT INTO users(nombre, email, rol) VALUES(?, ?, ?)";
         
         Connection conn = null;
         PreparedStatement stat = null;
@@ -41,8 +43,8 @@ public class User {
             stat = conn.prepareStatement(INSERT);
             stat.setString(1, this.nombre);
             stat.setString(2, this.email);
-            stat.setInt(3, pasword);
-            stat.setString(4, this.rol);
+            //stat.setInt(3, pasword);
+            stat.setString(3, this.rol);
                             
             //stmt.executeUpdate(sql);
             if (stat.executeUpdate() == 0){

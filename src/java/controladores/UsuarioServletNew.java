@@ -15,12 +15,14 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import modelos.User;
+
 /**
  *
- * @author estudiante.2016
+ * @author brannybk
  */
-@WebServlet(name = "LoginServelt", urlPatterns = {"/LoginServelt"})
-public class LoginServelt extends HttpServlet {
+@WebServlet(name = "UsuarioServletNew", urlPatterns = {"/UsuarioServletNew"})
+public class UsuarioServletNew extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -33,20 +35,36 @@ public class LoginServelt extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String usuario = request.getParameter("usuario");
-        String password = request.getParameter("password");
-        
+        String user = request.getParameter("inputNombre");
+        String email = request.getParameter("inputEmail");
+        String rol = request.getParameter("selectRol");
+
+        if (rol.equals("1")) {
+            rol = "Desarrollador";
+        } else if (rol.equals("2")){
+            rol = "Diseñador";
+        } else if (rol.equals("3")){
+            rol = "Administrador";
+        } else {
+            rol = "none";
+        }
+
         response.setContentType("application/json");
         Gson gson = new Gson();
         JsonObject object = new JsonObject();
-                
-        if (usuario.equals("admin") && password.equals("1234")){
+
+        // Register new user!
+        User newUser = new User(user, email, rol);
+        // Inserted new user into DB?
+        if ( newUser.Save() == true ){
             object.addProperty("error", Boolean.FALSE);
-            object.addProperty("url", "home.jsp");            
+            object.addProperty("url", "home.jsp");
+            object.addProperty("msg", "Usuario registrado con exito");
         } else {
             object.addProperty("error", Boolean.TRUE);
-            object.addProperty("errormsg", "Usuario o password incorrecto");
+            object.addProperty("errormsg", "Error al registrar el usuario en la BDDD");
         }
+
         PrintWriter out =  response.getWriter();
         out.print(gson.toJson(object));
         out.flush();
