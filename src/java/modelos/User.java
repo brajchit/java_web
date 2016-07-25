@@ -6,6 +6,7 @@
 package modelos;
 
 import java.sql.*;
+import modelos.MySqlConection;
 
 /**
  *
@@ -17,15 +18,6 @@ public class User {
     protected int pasword;
     protected String rol;
 
-    // JDBC driver name and database URL
-    static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
-    //static final String DB_URL = "jdbc:mysql://localhost:8889/Adm_Proyects";
-    static final String DB_URL = "jdbc:mysql://localhost:8889/Adm_Proyects";
-
-    //  Database credentials
-    static final String USER = "root";
-    static final String PASS = "root";
-
     public User(String nombre, String email, int pasword, String rol) {
         this.nombre = nombre;
         this.email = email;
@@ -35,23 +27,17 @@ public class User {
 
     public boolean Save(){
         boolean result = false;
-        String INSERT = "INSERT INTO users(nombre, email, password, rol) VALUES(?, ?, ?, ?)";
+        String INSERT = "INSERT INTO users(nombre, email, pass, rol) VALUES(?, ?, ?, ?)";
         
         Connection conn = null;
-        //Statement stmt = null;
         PreparedStatement stat = null;
         try{
-            //Register JDBC driver
-            Class.forName("com.mysql.jdbc.Driver");
-
-            //Open a connection
             System.out.println("Connecting to a selected database...");
-            conn = DriverManager.getConnection(this.DB_URL, this.USER, this.PASS);
+            conn = MySqlConection.connect();
             System.out.println("Connected database successfully...");
 
             //Execute a query
             System.out.println("Inserting records into the table...");
-            //stmt = conn.createStatement();
             stat = conn.prepareStatement(INSERT);
             stat.setString(1, this.nombre);
             stat.setString(2, this.email);
