@@ -8,3 +8,7 @@ He agregado:
 - Un controller UserIndexServelt q deberia devolver todos los user registrados para cargalos en la tabla(Aun no esta)
 
 *Nota: en la raiz add un directorio 'assets' con el .sql para la tabla(la BDD debe llamarse Adm_Proyects), y el .JAR que es el conector
+
+
+
+![screen shot 2016-07-26 at 08 55 02](https://cloud.githubusercontent.com/assets/10735382/17147240/974df8ce-5327-11e6-817e-9dd54adda4f9.png)
