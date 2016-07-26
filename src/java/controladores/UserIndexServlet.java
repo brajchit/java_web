@@ -9,11 +9,13 @@ import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import modelos.User;
 
 /**
  *
@@ -35,10 +37,24 @@ public class UserIndexServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("application/json");
         Gson gson = new Gson();
-        JsonObject object = new JsonObject();     
         
-        object.addProperty("error", Boolean.TRUE);
-        object.addProperty("errormsg", "Usuario o password incorrecto");
+        JsonObject object = new JsonObject();
+        
+        List<User> users = User.all();
+        int cont = 1;
+        for (User user : users) {
+            JsonObject object_user = new JsonObject();
+            String nombre = user.getNombre();
+            String email = user.getEmail();
+            String rol = user.getRol();
+            
+            object_user.addProperty("nombre", nombre);
+            object_user.addProperty("email", email);
+            object_user.addProperty("rol", rol);
+            
+            object.add(""+cont, object_user);
+            cont ++;
+        }
         
         PrintWriter out =  response.getWriter();
         out.print(gson.toJson(object));
