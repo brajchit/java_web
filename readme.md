@@ -10,5 +10,5 @@ He agregado:
 *Nota: en la raiz add un directorio 'assets' con el .sql para la tabla(la BDD debe llamarse Adm_Proyects), y el .JAR que es el conector
 
 
-
+## Netbeans proyect directory
 ![screen shot 2016-07-26 at 08 55 02](https://cloud.githubusercontent.com/assets/10735382/17147240/974df8ce-5327-11e6-817e-9dd54adda4f9.png)
