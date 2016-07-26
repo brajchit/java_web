@@ -2,3 +2,5 @@
 /build/
 /dist/
 .DS_Store
+/src/java/modelos/MySqlConection.java
+
