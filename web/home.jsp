@@ -53,7 +53,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
+          <%-- <tr>
             <th scope="row">1</th>
             <td>Juan Perez</td>
             <td>jperez@example.com</td>
@@ -76,7 +76,7 @@
             <td>Administrador</td>
             <td><a href="#"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a></td>
             <td><a href="#"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a></td>
-          </tr>
+          </tr> --%>
         </tbody>
       </table>
     </div>
@@ -92,10 +92,10 @@
             </div>
             <div class="modal-body">
                 <div class="form-group">
-                  <input type="text" class="form-control" id="inputNombre" name="inputNombre" placeholder="Nombre">
+                  <input type="text" class="form-control" id="inputNombre" name="inputNombre" placeholder="Nombre" required="">
                 </div>
                 <div class="form-group">
-                  <input type="email" class="form-control" id="inputApellido" name="inputEmail" placeholder="Email">
+                  <input type="email" class="form-control" id="inputApellido" name="inputEmail" placeholder="Email" required="">
                 </div>
                 <div class="form-group">
                   <select class="form-control" id="selectRol" name="selectRol">
