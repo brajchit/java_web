@@ -23,7 +23,7 @@ function updateTable() {
                                 +"<td>"+value.nombre+"</td>"
                                 +"<td>"+value.email+"</td>"
                                 +"<td>"+value.rol+"</td>"
-                                +'<td><a href="#"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a></td>'
+                                +'<td><a href="#" data-toggle="modal" data-target="#modalEditUsuarios"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a></td>'
                                 +'<td><a href="#"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a></td>'
                             +"</tr>" )
                 cont++;
@@ -51,5 +51,6 @@ $(document).ready(function() {
                 //window.location = data.url;
             }
         });
+        
     });
 });

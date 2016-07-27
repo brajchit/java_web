@@ -15,13 +15,13 @@ public class MySqlConection {
 
     //  Database credentials
     static final String DATABASE = "Adm_Proyects";
-    static final String PORT     = "8889";
+    static final String PORT     = "3306";
     static final String USER     = "root";
-    static final String PASS     = "root";
+    static final String PASS     = "";
     
     // JDBC driver name and database URL
     static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
-    static final String DB_URL = "jdbc:mysql://localhost:"+8889+"/"+DATABASE;
+    static final String DB_URL = "jdbc:mysql://localhost:"+PORT+"/"+DATABASE;
     
     public static Connection connect() {
         Connection conn = null;

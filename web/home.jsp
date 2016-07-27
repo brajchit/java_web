@@ -113,11 +113,44 @@
         </div>
       </div>
     </div>
+    <!-- Modal -->
+    <div class="modal fade" id="modalEditUsuarios" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <form id="editUserForm">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title">Editar Usuario</h4>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="inputNombreEdit" name="inputNombre" placeholder="Nombre" required="">
+                </div>
+                <div class="form-group">
+                  <input type="email" class="form-control" id="inputEmailEdit" name="inputEmail" placeholder="Email" required="">
+                </div>
+                <div class="form-group">
+                  <select class="form-control" id="selectRolEdit" name="selectRol">
+                    <option value="1">Desarrollador</option>
+                    <option value="2">Diseñador</option>
+                    <option value="3">Administrador</option>
+                  </select>
+                </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+              <button type="submit" class="btn btn-primary" id="btnNewUser">Actualizar</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/v/bs/dt-1.10.12/datatables.min.js"></script>
     <script src="javascripts/userNew.js" charset="utf-8"></script>
+    <script src="javascripts/editUser.js" charset="utf-8"></script>
     <script>
         $(document).ready(function() {
             $('#tablaUsuarios').DataTable({
@@ -128,7 +161,6 @@
                     { 'bSortable': false, 'aTargets': [ 4, 5 ] }
                  ]
             });
-
         });
     </script>
   </body>

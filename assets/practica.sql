@@ -11,7 +11,7 @@ SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
 --
--- Base de datos: `Adm_Proyects`
+-- Base de datos: `usersAdm_Proyects`
 --
 
 -- --------------------------------------------------------
@@ -33,10 +33,10 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `nombre`, `email`, `pass`, `rol`) VALUES
-(1, 'Veronica', 'vero@xmail', 1212, 'controller'),
-(2, 'Branny', 'branny@gmail', 1337, 'root_user'),
+(1, 'Veronica', 'vero@xmail', 1212, 'Administrador'),
+(2, 'Branny', 'branny@gmail', 1337, 'Administrador'),
 (3, 'Juan Perez', 'jperez@example.com', 1111, 'Desarrollador'),
-(4, 'Rodrigo Castro', 'rcastro@example.com', 1111, 'Disigner');
+(4, 'Rodrigo Castro', 'rcastro@example.com', 1111, 'Diseñador');
 
 --
 -- Índices para tablas volcadas

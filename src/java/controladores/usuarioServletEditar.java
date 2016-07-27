@@ -5,6 +5,8 @@
  */
 package controladores;
 
+import com.google.gson.Gson;
+import com.google.gson.JsonObject;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -12,6 +14,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import modelos.User;
 
 /**
  *
@@ -31,7 +34,40 @@ public class usuarioServletEditar extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+        String id = request.getParameter("id");
+        String user = request.getParameter("inputNombre");
+        String email = request.getParameter("inputEmail");
+        String rol = request.getParameter("selectRol");
+
+        if (rol.equals("1")) {
+            rol = "Desarrollador";
+        } else if (rol.equals("2")){
+            rol = "Diseñador";
+        } else if (rol.equals("3")){
+            rol = "Administrador";
+        } else {
+            rol = "none";
+        }
+
+        response.setContentType("application/json");
+        Gson gson = new Gson();
+        JsonObject object = new JsonObject();
+
+        // Register new user!
+        User newUser = new User(user, email, rol);
+        // Inserted new user into DB?
+        if ( newUser.Update(id) == true ){
+            object.addProperty("error", Boolean.FALSE);
+            object.addProperty("url", "home.jsp");
+            object.addProperty("msg", "Usuario registrado con exito");
+        } else {
+            object.addProperty("error", Boolean.TRUE);
+            object.addProperty("errormsg", "Error al registrar el usuario en la BDDD");
+        }
+
+        PrintWriter out =  response.getWriter();
+        out.print(gson.toJson(object));
+        out.flush();
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
