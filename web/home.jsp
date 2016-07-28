@@ -151,6 +151,7 @@
     <script type="text/javascript" src="https://cdn.datatables.net/v/bs/dt-1.10.12/datatables.min.js"></script>
     <script src="javascripts/userNew.js" charset="utf-8"></script>
     <script src="javascripts/editUser.js" charset="utf-8"></script>
+    <script src="javascripts/deleteUser.js" charset="utf-8"></script>
     <script>
         $(document).ready(function() {
             $('#tablaUsuarios').DataTable({

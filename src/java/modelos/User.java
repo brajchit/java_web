@@ -37,6 +37,61 @@ public class User {
         this.rol = rol;
     }
     
+    public boolean Remove(){
+        boolean result = false;
+        String DELETE = "DELETE FROM users WHERE nombre=? AND email=? AND rol=?";
+        
+        Connection conn = null;
+        PreparedStatement stat = null;
+        try{
+            System.out.println("Connecting to a selected database...");
+            conn = MySqlConection.connect();
+            System.out.println("Connected database successfully...");
+
+            //Execute a query
+            System.out.println("Deleting record in the table...");
+            stat = conn.prepareStatement(DELETE);
+            stat.setString(1,this.nombre);
+            stat.setString(2,this.email);
+            stat.setString(3,this.rol);
+
+                            
+            //stmt.executeUpdate(sql);
+            if (stat.executeUpdate() == 0){
+                System.out.println("User no iserted...");
+            } else {
+                System.out.println("Inserted records into the table...");
+            }
+            
+        }catch(SQLException se){
+            //Handle errors for JDBC
+            System.out.println("Error con el JDBC...");
+            se.printStackTrace();            
+        }catch(Exception e){
+            //Handle errors for Class.forName
+            System.out.println("Error en el forName...");
+            e.printStackTrace();
+        }finally{
+              //finally block used to close resources
+            try{
+                if(stat!=null)
+                    conn.close();
+                System.out.println(this.nombre + "insertado con éxito");
+                result = true;
+            }catch(SQLException se){
+            }// do nothing
+            try{
+                if(conn!=null)
+                    conn.close();
+                System.out.println(this.nombre + "insertado con éxito");
+                result = true;
+            }catch(SQLException se){
+                se.printStackTrace();
+            }//end finally try
+        }//end try
+        return result;
+    }
+    
     public boolean Update(String id){
         boolean result = false;
         String UPDATE = "UPDATE users SET nombre=?, email=?, rol=? WHERE id=?";

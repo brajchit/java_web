@@ -5,6 +5,8 @@
  */
 package controladores;
 
+import com.google.gson.Gson;
+import com.google.gson.JsonObject;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -12,6 +14,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import modelos.User;
 
 /**
  *
@@ -31,19 +34,29 @@ public class UsuariosServletDel extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet UsuariosServletDel</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet UsuariosServletDel at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
+        String id = request.getParameter("id");
+        String nombre = request.getParameter("nombre");
+        String email = request.getParameter("email");
+        String rol = request.getParameter("rol");
+        
+        response.setContentType("application/json");
+        Gson gson = new Gson();
+        JsonObject object = new JsonObject();
+        
+        User newUser = new User(nombre,email,rol);
+
+        if ( newUser.Remove() == true ){
+            object.addProperty("error", Boolean.FALSE);
+            object.addProperty("url", "home.jsp");
+            object.addProperty("msg", "Eliminado");
+        } else {
+            object.addProperty("error", Boolean.TRUE);
+            object.addProperty("errormsg", "Error al eilminar en la BDDD");
         }
+
+        PrintWriter out =  response.getWriter();
+        out.print(gson.toJson(object));
+        out.flush();
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
