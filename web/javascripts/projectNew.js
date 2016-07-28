@@ -15,9 +15,10 @@ function updateTable() {
             console.log(data);
             var trHTML = '';
             var cont = 1;
+            console.log("entra a la tabla");
             $("#tablaProyectos tbody").empty();
             $.each(data, function(key, value) {
-                // llenar los datos(key, value) en la tabla 'tablaUsuarios'
+                // llenar los datos(key, value) en la tabla 'tablaProyectos'
                 $("#tablaProyectos tbody").append(
                             "<tr>"
                                 +"<th scope='row'>"+cont+"</th>"
