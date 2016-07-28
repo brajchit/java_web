@@ -15,9 +15,9 @@ public class MySqlConection {
 
     //  Database credentials
     static final String DATABASE = "Adm_Proyects";
-    static final String PORT     = "3306";
+    static final String PORT     = "8889";
     static final String USER     = "root";
-    static final String PASS     = "Vaquitanutritiva";
+    static final String PASS     = "root";
     
     // JDBC driver name and database URL
     static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";

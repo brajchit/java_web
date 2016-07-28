@@ -12,6 +12,7 @@ function updateTable() {
         url: "proyectoIndexServlet",
         async: false,
         success: function(data) {
+            console.log(data);
             var trHTML = '';
             var cont = 1;
             $("#tablaProyectos tbody").empty();
@@ -41,16 +42,19 @@ $(document).ready(function() {
 
         $.ajax({
             type: "POST",
-            url: "UsuarioServletNew",
+            headers: {
+                'action': 'CREATE'
+            },
+            url: "Proyecto",
             data: $("#newUserForm").serialize(),
             success: function(data) {
-                alert(data.msg);
-                updateTable();
-                alert('hizo update');
+                alert(data.error);
+                // updateTable();
+                // alert('hizo update');
                 $("#modalProyectos").modal('hide');
                 //window.location = data.url;
             }
         });
-        
+
     });
 });

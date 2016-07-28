@@ -9,20 +9,18 @@ import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import modelos.Proyecto;
 
 /**
  *
- * @author Edgar
+ * @author brannybk
  */
-@WebServlet(name = "proyectoIndexServlet", urlPatterns = {"/proyectoIndexServlet"})
-public class proyectoIndexServlet extends HttpServlet {
+@WebServlet(name = "Proyecto", urlPatterns = {"/Proyecto"})
+public class Proyecto extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -35,34 +33,24 @@ public class proyectoIndexServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-                response.setContentType("application/json");
-        Gson gson = new Gson();
+        response.setContentType("text/html;charset=UTF-8");
+        String action = request.getHeader("action");
         
+        System.out.println("esto es la accion: "+action);
+        
+        response.setContentType("application/json");
+        Gson gson = new Gson();
         JsonObject object = new JsonObject();
         
-        List<Proyecto> proyectos = Proyecto.all();
-        int cont = 1;
-        for (Proyecto proyecto : proyectos) {
-            JsonObject object_proyecto = new JsonObject();
-            String nombre = proyecto.getNombre();
-            String descripcion = proyecto.getDescripcion();
-            String usuarioResp = proyecto.getUsuarioResp();
-            
-            System.out.println("users"+ nombre+" "+descripcion);
-            
-            object_proyecto.addProperty("nombre", nombre);
-            object_proyecto.addProperty("descripcion", descripcion);
-            object_proyecto.addProperty("usuarioResp", usuarioResp);
-            
-            object.add(""+cont, object_proyecto);
-            cont ++;
-        }
+        
+        
+        // Make response
+        object.addProperty("error", Boolean.TRUE);
         
         PrintWriter out =  response.getWriter();
         out.print(gson.toJson(object));
         out.flush();
     }
-        
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
@@ -102,4 +90,5 @@ public class proyectoIndexServlet extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
+
 }

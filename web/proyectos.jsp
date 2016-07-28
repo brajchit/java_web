@@ -53,12 +53,12 @@
           </tr>
         </thead>
         <tbody>
-          
+
         </tbody>
       </table>
     </div>
 
-    <!-- Modal -->
+    <!-- Modal CrearPryoyecto-->
     <div class="modal fade" id="modalProyectos" tabindex="-1" role="dialog">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -72,14 +72,10 @@
                   <input type="text" class="form-control" id="inputNombre" name="inputNombre" placeholder="Nombre" required="">
                 </div>
                 <div class="form-group">
-                  <input type="email" class="form-control" id="inputDescripcion" name="inputDescipcion" placeholder="Descripcion" required="">
+                  <input type="text" class="form-control" id="inputDescripcion" name="inputDescipcion" placeholder="Descripcion" required="">
                 </div>
                 <div class="form-group">
-                  <select class="form-control" id="selectUserResp" name="selectUserResp">
-                    <option value="1">Desarrollador</option>
-                    <option value="2">Diseñador</option>
-                    <option value="3">Administrador</option>
-                  </select>
+                  <input type="text" class="form-control" id="inputUsuarioResp" name="inputUsuarioResp" placeholder="usuario responsable" required="">
                 </div>
             </div>
             <div class="modal-footer">

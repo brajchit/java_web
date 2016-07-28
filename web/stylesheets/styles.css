@@ -37,3 +37,13 @@ nav li a span {
 .usuarios button {
     margin-bottom: 10px;
 }
+
+.proyectos {
+    width: 970px;
+    background-color: white;
+    border-radius: 10px;
+}
+
+.proyectos button {
+    margin-bottom: 10px;
+}
