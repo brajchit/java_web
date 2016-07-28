@@ -14,13 +14,14 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import modelos.Proyecto;
 
 /**
  *
  * @author brannybk
  */
-@WebServlet(name = "Proyecto", urlPatterns = {"/Proyecto"})
-public class Proyecto extends HttpServlet {
+@WebServlet(name = "ProyectoServlet", urlPatterns = {"/ProyectoServlet"})
+public class ProyectoServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -33,20 +34,33 @@ public class Proyecto extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
         String action = request.getHeader("action");
-        
+
         System.out.println("esto es la accion: "+action);
-        
+
         response.setContentType("application/json");
         Gson gson = new Gson();
         JsonObject object = new JsonObject();
         
-        
-        
+        String nombre = request.getParameter("inputNombre");
+        String desc = request.getParameter("inputDescipcion");
+        String resp = request.getParameter("inputUsuarioResp");
+
+        // Register new user!
+        Proyecto newProyecto = new Proyecto(nombre, desc, resp);
+        // Inserted new user into DB?
+        if ( newProyecto.Save() == true ){
+            object.addProperty("error", Boolean.FALSE);
+            object.addProperty("url", "home.jsp");
+            object.addProperty("msg", "Proyecto registrado con exito");
+        } else {
+            object.addProperty("error", Boolean.TRUE);
+            object.addProperty("errormsg", "Error al registrar el usuario en la BDDD");
+        }
+
         // Make response
         object.addProperty("error", Boolean.TRUE);
-        
+
         PrintWriter out =  response.getWriter();
         out.print(gson.toJson(object));
         out.flush();

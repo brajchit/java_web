@@ -48,8 +48,8 @@ $(document).ready(function() {
             url: "Proyecto",
             data: $("#newUserForm").serialize(),
             success: function(data) {
-                alert(data.error);
-                // updateTable();
+               alert(data.msg);
+                 updateTable();
                 // alert('hizo update');
                 $("#modalProyectos").modal('hide');
                 //window.location = data.url;
