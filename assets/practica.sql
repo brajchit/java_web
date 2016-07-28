@@ -30,6 +30,12 @@ CREATE TABLE IF NOT EXISTS`users` (
   `rol` varchar(50) NOT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
+CREATE TABLE IF NOT EXISTS`proyectos` (
+  `id` int(11) NOT NULL,
+  `nombre` varchar(50) NOT NULL,
+  `descripcion` varchar(50) NOT NULL,
+  `usuarioResp` varchar(50) DEFAULT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 --
 -- Volcado de datos para la tabla `users`
 --
@@ -40,6 +46,10 @@ INSERT INTO `users` (`id`, `nombre`, `email`, `pass`, `rol`) VALUES
 (2, 'Branny', 'branny@gmail', 1337, 'Administrador'),
 (3, 'Juan Perez', 'jperez@example.com', 1111, 'Desarrollador'),
 (4, 'Rodrigo Castro', 'rcastro@example.com', 1111, 'Diseñador');
+
+INSERT INTO `proyectos` (`id`, `nombre`, `descripcion`, `usuarioResp`) VALUES
+(1, 'proy1', 'proyecto finalizado', 'Veronica'),
+(2, 'proy2', 'proyecto zzz', 'Juan Perez');
 
 --
 -- Índices para tablas volcadas
