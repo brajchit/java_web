@@ -43,24 +43,29 @@ public class ProyectoServlet extends HttpServlet {
         JsonObject object = new JsonObject();
         
         String nombre = request.getParameter("inputNombre");
-        String desc = request.getParameter("inputDescipcion");
+        String desc = request.getParameter("inputDescripcion");
         String resp = request.getParameter("inputUsuarioResp");
-
+        
+        System.out.println("proyect to reg: "+nombre+desc+resp);
+        
         // Register new user!
         Proyecto newProyecto = new Proyecto(nombre, desc, resp);
         // Inserted new user into DB?
         if ( newProyecto.Save() == true ){
+            JsonObject object_proy = new JsonObject();
+            object_proy.addProperty("nombre", nombre);
+            object_proy.addProperty("descripcion", desc);
+            object_proy.addProperty("usuarioResp", resp);
+            
             object.addProperty("error", Boolean.FALSE);
-            object.addProperty("url", "home.jsp");
+            object.add("proyect", object_proy);
             object.addProperty("msg", "Proyecto registrado con exito");
         } else {
             object.addProperty("error", Boolean.TRUE);
             object.addProperty("errormsg", "Error al registrar el usuario en la BDDD");
         }
 
-        // Make response
-        object.addProperty("error", Boolean.TRUE);
-
+        
         PrintWriter out =  response.getWriter();
         out.print(gson.toJson(object));
         out.flush();

@@ -9,6 +9,7 @@ import java.sql.*;
 import java.util.List;
 import modelos.User;
 import modelos.MySqlConection;
+import modelos.Proyecto;
 
 /**
  *
@@ -29,10 +30,11 @@ public class DBExample {
 
     public static void main(String[] args) {
 //        User user = new User("Rodrigo Castro", "rcastro@example.com", "Disigner");
-//        user.Save();ˆ
-//        Proyecto proy = new Proyecto()
+//        user.Save();
+        Proyecto proy = new Proyecto("user", "descript", "manager");
+        proy.Save();
 
-        List<Proyecto> proyectos = Proyecto.all();
+        //List<Proyecto> proyectos = Proyecto.all();
         
     }//end main
 }//end DBExample

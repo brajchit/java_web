@@ -122,14 +122,14 @@
     <script src="javascripts/editUser.js" charset="utf-8"></script>
     <script>
         $(document).ready(function() {
-            $('#tablaProyectos').DataTable({
-                "language": {
-                    url: 'i18n/dt-spanish.json'
-                },
-                "aoColumnDefs": [
-                    { 'bSortable': false, 'aTargets': [ 4, 5 ] }
-                 ]
-            });
+//            $('#tablaProyectos').DataTable({
+//                "language": {
+//                    url: 'i18n/dt-spanish.json'
+//                },
+//                "aoColumnDefs": [
+//                    { 'bSortable': false, 'aTargets': [ 4, 5 ] }
+//                 ]
+//            });
         });
     </script>
   </body>
