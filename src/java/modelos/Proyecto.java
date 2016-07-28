@@ -46,13 +46,12 @@ public class Proyecto {
             stat = conn.prepareStatement(UPDATE);
             stat.setString(1, this.nombre);
             stat.setString(2, this.descripcion);
-            //stat.setInt(3, pasword);
             stat.setString(3, this.usuarioResp);
             stat.setString(4, id);
-                            
+            
             //stmt.executeUpdate(sql);
             if (stat.executeUpdate() == 0){
-                System.out.println("User not inserted...");
+                System.out.println("Project not inserted...");
             } else {
                 System.out.println("Inserted records into the table...");
             }
