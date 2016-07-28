@@ -104,14 +104,10 @@
                   <input type="text" class="form-control" id="inputNombreEdit" name="inputNombre" placeholder="Nombre" required="">
                 </div>
                 <div class="form-group">
-                  <input type="email" class="form-control" id="inputDescripcionEdit" name="inputDescripcion" placeholder="Descripcion" required="">
+                  <input type="descripcion" class="form-control" id="inputDescripcionEdit" name="inputDescripcion" placeholder="Descripcion" required="">
                 </div>
                 <div class="form-group">
-                  <select class="form-control" id="selectRolEdit" name="selectRol">
-                    <option value="1">Desarrollador</option>
-                    <option value="2">Diseñador</option>
-                    <option value="3">Administrador</option>
-                  </select>
+                  <input type="usuarioResp" class="form-control" id="inputUsuarioRespEdit" name="inputUsuarioResp" placeholder="Usuario Responsable" required="">
                 </div>
             </div>
             <div class="modal-footer">
