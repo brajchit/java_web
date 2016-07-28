@@ -43,16 +43,11 @@ $(document).ready(function() {
 
         $.ajax({
             type: "POST",
-<<<<<<< HEAD
             headers: {
                 'action': 'CREATE'
             },
             url: "Proyecto",
             data: $("#newUserForm").serialize(),
-=======
-            url: "ProyectoServletNew",
-            data: $("#newProjectForm").serialize(),
->>>>>>> 500fb6a150d34eb4ca9c40cf52aa475492ef33b3
             success: function(data) {
                 alert(data.error);
                 // updateTable();
