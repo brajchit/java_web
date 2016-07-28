@@ -21,6 +21,7 @@ USE Adm_Proyects;
 -- Estructura de tabla para la tabla `users`
 --
 DROP TABLE IF EXISTS users;
+DROP TABLE IF EXISTS proyectos;
 
 CREATE TABLE IF NOT EXISTS`users` (
   `id` int(11) NOT NULL,
