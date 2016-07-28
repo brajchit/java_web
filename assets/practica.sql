@@ -14,13 +14,15 @@ SET time_zone = "+00:00";
 -- Base de datos: `usersAdm_Proyects`
 --
 
+USE Adm_Proyects;
 -- --------------------------------------------------------
 
 --
 -- Estructura de tabla para la tabla `users`
 --
+DROP TABLE IF EXISTS users;
 
-CREATE TABLE `users` (
+CREATE TABLE IF NOT EXISTS`users` (
   `id` int(11) NOT NULL,
   `nombre` varchar(50) NOT NULL,
   `email` varchar(50) NOT NULL,
@@ -31,6 +33,7 @@ CREATE TABLE `users` (
 --
 -- Volcado de datos para la tabla `users`
 --
+
 
 INSERT INTO `users` (`id`, `nombre`, `email`, `pass`, `rol`) VALUES
 (1, 'Veronica', 'vero@xmail', 1212, 'Administrador'),

@@ -27,8 +27,8 @@
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Usuarios</a></li>
-            <li><a href="proyectos.jsp">Proyectos</a></li>
+            <li><a href="home.jsp">Usuarios</a></li>
+            <li class = "active"><a href="#">Proyectos</a></li>
             <li><a href="#">Dashboard</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
@@ -38,67 +38,44 @@
         </div><!--/.nav-collapse -->
       </div>
     </nav>
-    <div class="container usuarios">
-      <h2>Registro de Usuarios</h2>
-      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalUsuarios">Agregar Usuario</button>
-      <table id="tablaUsuarios" class="table table-bordered table-striped">
+    <div class="container proyectos">
+      <h2>Registro de Proyectos</h2>
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalProyectos">Agregar Proyecto</button>
+      <table id="tablaProyectos" class="table table-bordered table-striped">
         <thead>
           <tr>
             <th>#</th>
             <th>Nombre</th>
-            <th>Email</th>
-            <th>Rol</th>
+            <th>Descripcion</th>
+            <th>Usuario Responsable</th>
             <th>Editar</th>
             <th>Eliminar</th>
           </tr>
         </thead>
         <tbody>
-          <%-- <tr>
-            <th scope="row">1</th>
-            <td>Juan Perez</td>
-            <td>jperez@example.com</td>
-            <td>Desarrollador</td>
-            <td><a href="#"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a></td>
-            <td><a href="#"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a></td>
-          </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>Rodrigo Castro</td>
-            <td>rcastro@example.com</td>
-            <td>Diseñador</td>
-            <td><a href="#"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a></td>
-            <td><a href="#"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a></td>
-          </tr>
-          <tr>
-            <th scope="row">3</th>
-            <td>Jose Sanchez</td>
-            <td>jsanchez@example.com</td>
-            <td>Administrador</td>
-            <td><a href="#"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a></td>
-            <td><a href="#"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a></td>
-          </tr> --%>
+          
         </tbody>
       </table>
     </div>
 
     <!-- Modal -->
-    <div class="modal fade" id="modalUsuarios" tabindex="-1" role="dialog">
+    <div class="modal fade" id="modalProyectos" tabindex="-1" role="dialog">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
-          <form id="newUserForm">
+          <form id="newProjectForm">
             <div class="modal-header">
               <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-              <h4 class="modal-title">Ingresar Usuario</h4>
+              <h4 class="modal-title">Ingresar Proyecto</h4>
             </div>
             <div class="modal-body">
                 <div class="form-group">
                   <input type="text" class="form-control" id="inputNombre" name="inputNombre" placeholder="Nombre" required="">
                 </div>
                 <div class="form-group">
-                  <input type="email" class="form-control" id="inputApellido" name="inputEmail" placeholder="Email" required="">
+                  <input type="email" class="form-control" id="inputDescripcion" name="inputDescipcion" placeholder="Descripcion" required="">
                 </div>
                 <div class="form-group">
-                  <select class="form-control" id="selectRol" name="selectRol">
+                  <select class="form-control" id="selectUserResp" name="selectUserResp">
                     <option value="1">Desarrollador</option>
                     <option value="2">Diseñador</option>
                     <option value="3">Administrador</option>
@@ -114,20 +91,20 @@
       </div>
     </div>
     <!-- Modal -->
-    <div class="modal fade" id="modalEditUsuarios" tabindex="-1" role="dialog">
+    <div class="modal fade" id="modalEditProyectos" tabindex="-1" role="dialog">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
-          <form id="editUserForm">
+          <form id="editProyectosForm">
             <div class="modal-header">
               <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-              <h4 class="modal-title">Editar Usuario</h4>
+              <h4 class="modal-title">Editar Proyecto</h4>
             </div>
             <div class="modal-body">
                 <div class="form-group">
                   <input type="text" class="form-control" id="inputNombreEdit" name="inputNombre" placeholder="Nombre" required="">
                 </div>
                 <div class="form-group">
-                  <input type="email" class="form-control" id="inputEmailEdit" name="inputEmail" placeholder="Email" required="">
+                  <input type="email" class="form-control" id="inputDescripcionEdit" name="inputDescripcion" placeholder="Descripcion" required="">
                 </div>
                 <div class="form-group">
                   <select class="form-control" id="selectRolEdit" name="selectRol">
@@ -149,11 +126,11 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/v/bs/dt-1.10.12/datatables.min.js"></script>
-    <script src="javascripts/userNew.js" charset="utf-8"></script>
+    <script src="javascripts/projectNew.js" charset="utf-8"></script>
     <script src="javascripts/editUser.js" charset="utf-8"></script>
     <script>
         $(document).ready(function() {
-            $('#tablaUsuarios').DataTable({
+            $('#tablaProyectos').DataTable({
                 "language": {
                     url: 'i18n/dt-spanish.json'
                 },

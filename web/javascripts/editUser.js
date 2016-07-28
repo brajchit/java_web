@@ -25,9 +25,10 @@
 });*/
 var editor; // use a global for the submit and return data rendering in the examples
  
+ var id;
 $(document).ready(function() {
     // Activate an inline edit on click of a table cell
-    var id;
+    //var id;
     $('#tablaUsuarios .glyphicon-edit').on( 'click', function (e) {
         id = $(this).parent().parent().parent().children(':first-child').text();
         var nombre=$(this).parent().parent().parent().children(':nth-child(2)').text();
