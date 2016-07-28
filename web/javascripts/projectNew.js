@@ -14,6 +14,7 @@ function updateTable() {
         success: function(data) {
             var trHTML = '';
             var cont = 1;
+            console.log("entra a la tabla");
             $("#tablaProyectos tbody").empty();
             $.each(data, function(key, value) {
                 // llenar los datos(key, value) en la tabla 'tablaProyectos'
@@ -41,7 +42,7 @@ $(document).ready(function() {
 
         $.ajax({
             type: "POST",
-            url: "UsuarioServletNew",
+            url: "ProyectoServletNew",
             data: $("#newProjectForm").serialize(),
             success: function(data) {
                 alert(data.msg);

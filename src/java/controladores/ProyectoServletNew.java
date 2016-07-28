@@ -20,8 +20,8 @@ import modelos.Proyecto;
  *
  * @author Edgar
  */
-@WebServlet(name = "proyectoEditServlet", urlPatterns = {"/proyectoEditServlet"})
-public class proyectoEditServlet extends HttpServlet {
+@WebServlet(name = "ProyectoServletNew", urlPatterns = {"/ProyectoServletNew"})
+public class ProyectoServletNew extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -34,7 +34,6 @@ public class proyectoEditServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String id = request.getParameter("id");
         String proyecto = request.getParameter("inputNombre");
         String descripcion = request.getParameter("inputDescripcion");
         String usuarioResp = request.getParameter("inputUsuarioResp");
@@ -43,11 +42,10 @@ public class proyectoEditServlet extends HttpServlet {
         Gson gson = new Gson();
         JsonObject object = new JsonObject();
 
-        // Register new user!
         Proyecto newProyecto = new Proyecto(proyecto, descripcion, usuarioResp);
         // Inserted new user into DB?
         //validacion de usuarioResp con la BBDD
-        if ( newProyecto.Update(id) == true ){
+        if ( newProyecto.Save() == true ){
             object.addProperty("error", Boolean.FALSE);
             object.addProperty("url", "proyectos.jsp");
             object.addProperty("msg", "Proyecto registrado con exito");
@@ -59,7 +57,8 @@ public class proyectoEditServlet extends HttpServlet {
         PrintWriter out =  response.getWriter();
         out.print(gson.toJson(object));
         out.flush();
-        }
+    }
+
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.

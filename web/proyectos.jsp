@@ -72,14 +72,10 @@
                   <input type="text" class="form-control" id="inputNombre" name="inputNombre" placeholder="Nombre" required="">
                 </div>
                 <div class="form-group">
-                  <input type="email" class="form-control" id="inputDescripcion" name="inputDescipcion" placeholder="Descripcion" required="">
+                  <input type="text" class="form-control" id="inputDescripcion" name="inputDescripcion" placeholder="Descripcion" required="">
                 </div>
                 <div class="form-group">
-                  <select class="form-control" id="selectUserResp" name="selectUserResp">
-                    <option value="1">Desarrollador</option>
-                    <option value="2">Diseñador</option>
-                    <option value="3">Administrador</option>
-                  </select>
+                  <input type="text" class="form-control" id="inputUsuarioResp" name="inputUsuarioResp" placeholder="Usuario Responsable" required="">
                 </div>
             </div>
             <div class="modal-footer">
@@ -104,10 +100,10 @@
                   <input type="text" class="form-control" id="inputNombreEdit" name="inputNombre" placeholder="Nombre" required="">
                 </div>
                 <div class="form-group">
-                  <input type="descripcion" class="form-control" id="inputDescripcionEdit" name="inputDescripcion" placeholder="Descripcion" required="">
+                  <input type="text" class="form-control" id="inputDescripcionEdit" name="inputDescripcion" placeholder="Descripcion" required="">
                 </div>
                 <div class="form-group">
-                  <input type="usuarioResp" class="form-control" id="inputUsuarioRespEdit" name="inputUsuarioResp" placeholder="Usuario Responsable" required="">
+                  <input type="text" class="form-control" id="inputUsuarioRespEdit" name="inputUsuarioResp" placeholder="Usuario Responsable" required="">
                 </div>
             </div>
             <div class="modal-footer">

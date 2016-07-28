@@ -28,6 +28,7 @@ function editarProyecto(){
     var links = $('#tablaProyectos .glyphicon-edit');
     for (i = 0; i < links.length; i++) {
         links[i].onclick = function(e){
+            console.log(id);
             id = $(this).parent().parent().parent().children(':first-child').text();
             var nombre=$(this).parent().parent().parent().children(':nth-child(2)').text();
             var descripcion=$(this).parent().parent().parent().children(':nth-child(3)').text();

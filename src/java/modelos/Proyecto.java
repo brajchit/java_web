@@ -85,6 +85,61 @@ public class Proyecto {
         return result;
     }
     
+    public boolean Save(){
+        boolean result = false;
+        String INSERT = "INSERT INTO proyectos (nombre, descripcion, usuarioResp) VALUES(?, ?, ?)";
+        
+        Connection conn = null;
+        PreparedStatement stat = null;
+        try{
+            System.out.println("Connecting to a selected database...");
+            conn = MySqlConection.connect();
+            System.out.println("Connected database successfully...");
+
+            //Execute a query
+            System.out.println("Inserting records into the table...");
+            stat = conn.prepareStatement(INSERT);
+            stat.setString(1, this.nombre);
+            stat.setString(2, this.descripcion);
+            //stat.setInt(3, pasword);
+            stat.setString(3, this.usuarioResp);
+                            
+            //stmt.executeUpdate(sql);
+            if (stat.executeUpdate() == 0){
+                System.out.println("Project not inserted...");
+            } else {
+                System.out.println("Inserted records into the table...");
+            }
+            
+        }catch(SQLException se){
+            //Handle errors for JDBC
+            System.out.println("Error con el JDBC...");
+            se.printStackTrace();            
+        }catch(Exception e){
+            //Handle errors for Class.forName
+            System.out.println("Error en el forName...");
+            e.printStackTrace();
+        }finally{
+              //finally block used to close resources
+            try{
+                if(stat!=null)
+                    conn.close();
+                System.out.println(this.nombre + "insertado con éxito");
+                result = true;
+            }catch(SQLException se){
+            }// do nothing
+            try{
+                if(conn!=null)
+                    conn.close();
+                System.out.println(this.nombre + "insertado con éxito");
+                result = true;
+            }catch(SQLException se){
+                se.printStackTrace();
+            }//end finally try
+        }//end try
+        return result;
+    }
+    
         public static List<Proyecto> all(){
         List<Proyecto> proyectos = new ArrayList<Proyecto>();
         
